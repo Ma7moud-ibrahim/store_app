@@ -2,8 +2,8 @@ import 'package:app_store/models/product_model.dart';
 import 'package:app_store/screens/ubdate_product_page.dart';
 import 'package:flutter/material.dart';
 
-class CustomCard extends StatelessWidget {
-  const CustomCard({super.key, required this.productModel});
+class CustomCardCategory extends StatelessWidget {
+  const CustomCardCategory({super.key, required this.productModel});
   final ProductModel productModel;
 
   @override
@@ -26,7 +26,7 @@ class CustomCard extends StatelessWidget {
             child: Card(
               elevation: 10,
               child: Padding(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(16),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -35,20 +35,17 @@ class CustomCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          width: 80,
-                          child: Text(
-                            productModel.title,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(color: Colors.grey),
-                          ),
-                        ),
-                        Text(
-                          r'$'
-                          '${productModel.price}',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
+                          width: 110,
+                          child: Center(
+                            child: Text(
+                              productModel.title,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -62,13 +59,13 @@ class CustomCard extends StatelessWidget {
           ),
 
           Positioned(
-            top: -30,
-            right: 50,
+            top: -40,
+            right: 45,
             child: productModel.image.startsWith('http')
                 ? Image.network(
                     productModel.image,
-                    width: 80,
-                    height: 80,
+                    width: 100,
+                    height: 100,
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
                       return Container(
@@ -81,13 +78,13 @@ class CustomCard extends StatelessWidget {
                   )
                 : Image.asset(
                     productModel.image,
-                    width: 80,
-                    height: 80,
+                    width: 100,
+                    height: 100,
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
                       return Container(
-                        width: 72,
-                        height: 72,
+                        width: 100,
+                        height: 100,
                         color: Colors.grey,
                         child: const Icon(Icons.broken_image),
                       );

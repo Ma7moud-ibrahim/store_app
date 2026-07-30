@@ -1,35 +1,30 @@
 import 'package:app_store/models/product_model.dart';
-import 'package:app_store/services/get_all_product_service.dart';
-import 'package:app_store/widget/custom_card.dart';
+import 'package:app_store/services/get_all_category_service.dart';
+import 'package:app_store/widget/custom_card_category.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class CategoryPage extends StatefulWidget {
+  const CategoryPage({super.key});
+  static String id = 'CategoryPage';
 
-  static const String id = 'HomePage';
+  @override
+  State<CategoryPage> createState() => _CategoryPageState();
+}
 
+class _CategoryPageState extends State<CategoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("New Trend"),
         centerTitle: true,
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
         elevation: 0,
-
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.notifications_none),
-          ),
-        ],
+        title: Text('Category', style: TextStyle(color: Colors.black)),
+        backgroundColor: Colors.transparent,
       ),
-
       body: Padding(
         padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 50),
         child: FutureBuilder<List<ProductModel>>(
-          future: AllProductService().getAllProducts(),
+          future: AllCategoryService().getAllCategoryService(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
@@ -55,7 +50,7 @@ class HomePage extends StatelessWidget {
                 crossAxisSpacing: 5,
               ),
               itemBuilder: (context, index) {
-                return CustomCard(productModel: snapshot.data![index]);
+                return CustomCardCategory(productModel: snapshot.data![index]);
               },
             );
           },

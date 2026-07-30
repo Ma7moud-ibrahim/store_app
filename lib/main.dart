@@ -1,3 +1,4 @@
+import 'package:app_store/screens/category_page.dart';
 import 'package:app_store/screens/home_page.dart';
 import 'package:app_store/screens/ubdate_product_page.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +17,9 @@ class AppStore extends StatelessWidget {
       routes: {
         HomePage.id: (context) => HomePage(),
         UpdateProductPage.id: (context) => UpdateProductPage(),
+        CategoryPage.id: (context) => CategoryPage(),
       },
-      initialRoute: HomePage.id,
+      initialRoute: CategoryPage.id,
     );
   }
 }
