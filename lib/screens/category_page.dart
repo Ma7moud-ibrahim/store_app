@@ -22,7 +22,7 @@ class _CategoryPageState extends State<CategoryPage> {
         backgroundColor: Colors.transparent,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 50),
+        padding: const EdgeInsets.symmetric(horizontal: 8),
         child: FutureBuilder<List<ProductModel>>(
           future: AllCategoryService().getAllCategoryService(),
           builder: (context, snapshot) {
@@ -41,8 +41,8 @@ class _CategoryPageState extends State<CategoryPage> {
             }
 
             return GridView.builder(
-              itemCount: snapshot.data!.length,
               clipBehavior: Clip.none,
+              itemCount: snapshot.data!.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 1.3,
