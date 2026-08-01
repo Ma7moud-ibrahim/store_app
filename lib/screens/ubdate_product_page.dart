@@ -141,6 +141,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
                   },
 
                   text: 'Update',
+                  color: const Color.fromARGB(255, 17, 96, 241),
                 ),
               ],
             ),
