@@ -1,9 +1,10 @@
+import 'package:app_store/screens/product_details.dart';
 import 'package:flutter/material.dart';
 
 import 'package:app_store/screens/category_page.dart';
 import 'package:app_store/screens/home_page.dart';
 import 'package:app_store/screens/ubdate_product_page.dart';
-import 'package:app_store/widget/bottom_navigation_bar.dart';
+import 'package:app_store/screens/bottom_navigation_bar.dart';
 
 void main() {
   runApp(const AppStore());
@@ -23,6 +24,7 @@ class AppStore extends StatelessWidget {
         HomePage.id: (_) => const HomePage(),
         CategoryPage.id: (_) => const CategoryPage(),
         UpdateProductPage.id: (_) => const UpdateProductPage(),
+        ProductDetails.id: (_) => ProductDetails(),
       },
     );
   }

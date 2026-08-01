@@ -1,5 +1,6 @@
 import 'package:app_store/models/product_model.dart';
-import 'package:app_store/screens/ubdate_product_page.dart';
+import 'package:app_store/screens/product_details.dart';
+// import 'package:app_store/screens/ubdate_product_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardCategory extends StatelessWidget {
@@ -12,7 +13,7 @@ class CustomCardCategory extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(
           context,
-          UpdateProductPage.id,
+          ProductDetails.id,
           arguments: productModel,
         );
       },

@@ -5,6 +5,7 @@ class ProductModel {
   final String descreption;
   final String image;
   final String category;
+  final double rating;
 
   ProductModel({
     required this.id,
@@ -13,6 +14,7 @@ class ProductModel {
     required this.descreption,
     required this.image,
     required this.category,
+    required this.rating,
   });
 
   factory ProductModel.fromJson(dynamic jsonDate) {
@@ -41,6 +43,14 @@ class ProductModel {
       priceValue = double.tryParse(rawPrice) ?? 0.0;
     }
 
+    final rawRate = jsonDate['rating'];
+    double RatingValue = 0.0;
+    if (rawRate is num) {
+      RatingValue = rawRate.toDouble();
+    } else if (rawPrice is String) {
+      RatingValue = double.tryParse(rawRate) ?? 0.0;
+    }
+
     return ProductModel(
       id: jsonDate['id'].toString(),
       title: jsonDate['title'] as String? ?? '',
@@ -51,6 +61,7 @@ class ProductModel {
           ''),
       image: imageUrl ?? '',
       category: jsonDate['category'] as String? ?? '',
+      rating: RatingValue,
     );
   }
 }
