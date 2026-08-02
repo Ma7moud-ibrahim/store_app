@@ -1,3 +1,4 @@
+import 'package:app_store/screens/bag_page.dart';
 import 'package:app_store/screens/product_details.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +26,7 @@ class AppStore extends StatelessWidget {
         CategoryPage.id: (_) => const CategoryPage(),
         UpdateProductPage.id: (_) => const UpdateProductPage(),
         ProductDetails.id: (_) => ProductDetails(),
+        BagPage.id: (_) => BagPage(),
       },
     );
   }

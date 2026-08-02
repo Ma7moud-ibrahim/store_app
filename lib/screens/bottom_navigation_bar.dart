@@ -1,3 +1,4 @@
+import 'package:app_store/screens/bag_page.dart';
 import 'package:app_store/screens/category_page.dart';
 import 'package:app_store/screens/home_page.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class _NavigationBarScreensState extends State<NavigationBarScreens> {
   final List<Widget> _pages = const [
     HomePage(),
     CategoryPage(),
+    BagPage(),
     Center(child: Text('Profile Screen')),
   ];
 
@@ -24,20 +26,35 @@ class _NavigationBarScreensState extends State<NavigationBarScreens> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _currentIndex,
+        onDestinationSelected: (index) {
           setState(() {
             _currentIndex = index;
           });
         },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category),
+        indicatorColor: Colors.green,
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.home_outlined),
+            selectedIcon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.category_outlined),
+            selectedIcon: Icon(Icons.category),
             label: 'Category',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          NavigationDestination(
+            icon: Icon(Icons.shopping_bag_outlined),
+            selectedIcon: Icon(Icons.shopping_bag),
+            label: 'Bag',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.person_outline),
+            selectedIcon: Icon(Icons.person),
+            label: 'Profile',
+          ),
         ],
       ),
     );
