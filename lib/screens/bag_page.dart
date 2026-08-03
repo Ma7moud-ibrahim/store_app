@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:app_store/services/cart_service.dart';
+import 'package:app_store/widget/custom_bag_product.dart';
 import 'package:flutter/material.dart';
 
 class BagPage extends StatefulWidget {
@@ -22,85 +23,12 @@ class _BagPageState extends State<BagPage> {
           ),
         ),
       ),
-      body: Padding(
-        padding: EdgeInsetsGeometry.only(right: 14, top: 50, left: 14),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Products',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 25,
-                fontWeight: FontWeight(700),
-              ),
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Image.network(
-                  width: 125,
-                  'https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp',
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Title',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                        fontWeight: FontWeight(600),
-                      ),
-                    ),
-                    Text(
-                      'Category',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                        fontWeight: FontWeight(600),
-                      ),
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          '\$price',
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: CupertinoColors.activeGreen,
-                          ),
-                        ),
-                        TextButton(
-                          style: TextButton.styleFrom(
-                            backgroundColor: CupertinoColors.destructiveRed,
-                          ),
-                          onPressed: () {},
-                          child: Icon(Icons.minimize, color: Colors.white),
-                        ),
-
-                        SizedBox(width: 20, child: Center(child: Text('1'))),
-                        TextButton(
-                          style: TextButton.styleFrom(
-                            backgroundColor: CupertinoColors.activeGreen,
-                          ),
-                          onPressed: () {},
-                          child: Icon(Icons.add, color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
+      body: ListView.builder(
+        itemCount: CartService.cartItems.length,
+        itemBuilder: (context, index) {
+          final item = CartService.cartItems[index];
+          return CustomBagProduct(item, index: index);
+        },
       ),
     );
   }
