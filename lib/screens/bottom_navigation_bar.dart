@@ -1,6 +1,7 @@
 import 'package:app_store/screens/bag_page.dart';
 import 'package:app_store/screens/category_page.dart';
 import 'package:app_store/screens/home_page.dart';
+import 'package:app_store/screens/profile_page.dart';
 import 'package:flutter/material.dart';
 
 class NavigationBarScreens extends StatefulWidget {
@@ -19,7 +20,7 @@ class _NavigationBarScreensState extends State<NavigationBarScreens> {
     HomePage(),
     CategoryPage(),
     BagPage(),
-    Center(child: Text('Profile Screen')),
+    ProfilePage(),
   ];
 
   @override

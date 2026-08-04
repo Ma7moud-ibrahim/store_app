@@ -89,7 +89,12 @@ class CustomProductDetails extends StatelessWidget {
           CustomButton(
             onPressed: () {
               CartService.addToCart(product);
-              SnackBar(content: Text('The Product Was Adding.'));
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Product added to bag.'),
+                  duration: Duration(seconds: 2),
+                ),
+              );
             },
             text: 'Add to Bag',
             color: CupertinoColors.activeGreen,

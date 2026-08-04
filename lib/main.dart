@@ -1,5 +1,6 @@
 import 'package:app_store/screens/bag_page.dart';
 import 'package:app_store/screens/product_details.dart';
+import 'package:app_store/screens/profile_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:app_store/screens/category_page.dart';
@@ -27,6 +28,7 @@ class AppStore extends StatelessWidget {
         UpdateProductPage.id: (_) => const UpdateProductPage(),
         ProductDetails.id: (_) => ProductDetails(),
         BagPage.id: (_) => BagPage(),
+        ProfilePage.id: (_) => ProfilePage(),
       },
     );
   }
