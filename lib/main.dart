@@ -1,6 +1,9 @@
 import 'package:app_store/screens/bag_page.dart';
+import 'package:app_store/screens/login_page.dart';
+import 'package:app_store/screens/login_page_verfection.dart';
 import 'package:app_store/screens/product_details.dart';
 import 'package:app_store/screens/profile_page.dart';
+import 'package:app_store/screens/register_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:app_store/screens/category_page.dart';
@@ -20,7 +23,7 @@ class AppStore extends StatelessWidget {
     return MaterialApp(
       title: 'App Store',
       debugShowCheckedModeBanner: false,
-      initialRoute: NavigationBarScreens.id,
+      initialRoute: LoginPageVerfection.id,
       routes: {
         NavigationBarScreens.id: (_) => const NavigationBarScreens(),
         HomePage.id: (_) => const HomePage(),
@@ -29,6 +32,9 @@ class AppStore extends StatelessWidget {
         ProductDetails.id: (_) => ProductDetails(),
         BagPage.id: (_) => BagPage(),
         ProfilePage.id: (_) => ProfilePage(),
+        LoginPage.id: (_) => LoginPage(),
+        LoginPageVerfection.id: (_) => LoginPageVerfection(),
+        RegisterPage.id: (_) => RegisterPage(),
       },
     );
   }

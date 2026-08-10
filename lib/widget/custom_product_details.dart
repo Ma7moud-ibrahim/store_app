@@ -98,6 +98,7 @@ class CustomProductDetails extends StatelessWidget {
             },
             text: 'Add to Bag',
             color: CupertinoColors.activeGreen,
+            icon: Icons.arrow_forward,
           ),
         ],
       ),

@@ -7,17 +7,23 @@ class CustomTextField extends StatelessWidget {
     this.controller,
     this.onChanged,
     this.inputType,
+    this.validator,
+    this.obscureText = false,
   });
   final String label;
   final TextEditingController? controller;
   final Function(String)? onChanged;
   final TextInputType? inputType;
+  final String? Function(String?)? validator;
+  final bool obscureText;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: controller,
       keyboardType: inputType,
       onChanged: onChanged,
+      validator: validator,
+      obscureText: obscureText,
       cursorColor: const Color.fromRGBO(94, 82, 82, 1),
       decoration: InputDecoration(
         label: Text(label),

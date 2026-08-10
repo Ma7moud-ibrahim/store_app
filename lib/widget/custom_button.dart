@@ -6,11 +6,13 @@ class CustomButton extends StatelessWidget {
     this.onPressed,
     required this.text,
     required this.color,
+    required this.icon,
   });
 
   final String text;
   final Color color;
   final VoidCallback? onPressed;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,6 @@ class CustomButton extends StatelessWidget {
           backgroundColor: color,
           foregroundColor: Colors.black,
           iconSize: 25,
-          // أضفنا padding داخلي عشان الأيقونة متلزقش في الحافة بالظبط
           padding: const EdgeInsets.symmetric(horizontal: 16),
         ),
         onPressed: onPressed,
@@ -38,7 +39,7 @@ class CustomButton extends StatelessWidget {
               ),
             ),
 
-            const Icon(Icons.shopping_bag, color: Colors.white),
+            Icon(icon, color: Colors.white),
           ],
         ),
       ),

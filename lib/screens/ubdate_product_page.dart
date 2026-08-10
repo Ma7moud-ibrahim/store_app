@@ -1,7 +1,7 @@
 import 'package:app_store/models/product_model.dart';
 import 'package:app_store/services/update_product.dart';
 import 'package:app_store/widget/custom_button.dart';
-import 'package:app_store/widget/custom_text.dart';
+import 'package:app_store/widget/custom_text_feild.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
@@ -142,6 +142,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
 
                   text: 'Update',
                   color: const Color.fromARGB(255, 17, 96, 241),
+                  icon: Icons.arrow_forward,
                 ),
               ],
             ),

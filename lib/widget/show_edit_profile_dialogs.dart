@@ -80,10 +80,4 @@ class _ShowEditProfileDialogsState extends State<ShowEditProfileDialogs> {
       ],
     );
   }
-
-  void onUpdate(String name, String phone) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Profile updated successfully')),
-    );
-  }
 }
