@@ -1,6 +1,4 @@
-import 'package:app_store/screens/register_page.dart';
 import 'package:app_store/widget/custom_button.dart';
-import 'package:app_store/widget/phone_number_text_feild.dart';
 import 'package:app_store/widget/verfection.dart';
 import 'package:flutter/material.dart' hide Size;
 
@@ -17,13 +15,13 @@ class LoginPageVerfection extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(15),
         child: Form(
           key: formKey,
           child: ListView(
             children: [
               SizedBox(
-                height: 400,
+                height: 300,
                 width: 100,
                 child: Image.asset(
                   "lib/assets/images/undraw_personalization_triu.png",

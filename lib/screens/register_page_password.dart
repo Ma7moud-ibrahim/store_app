@@ -2,13 +2,13 @@ import 'package:app_store/widget/custom_button.dart';
 import 'package:app_store/widget/custom_text_feild.dart';
 import 'package:flutter/material.dart' hide Size;
 
-class RegisterPage extends StatelessWidget {
+class RegisterPagePassword extends StatelessWidget {
   bool isLoading = false;
-  String? name;
-  static String id = 'RegisterPage';
+  String? password;
+  static String id = 'RegisterPagePassword';
   final GlobalKey<FormState> formKey = GlobalKey();
 
-  RegisterPage({super.key});
+  RegisterPagePassword({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class RegisterPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text('Your Information'),
+        title: Text('Choose a Password'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -25,8 +25,10 @@ class RegisterPage extends StatelessWidget {
           child: ListView(
             physics: const NeverScrollableScrollPhysics(),
             children: [
+              const SizedBox(height: 15),
+
               Text(
-                'It looks like you dont have account in this number. Please let us know some information for a scure service',
+                'For the security & safety please choose a password',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -35,28 +37,27 @@ class RegisterPage extends StatelessWidget {
                 textAlign: TextAlign.start,
               ),
               SizedBox(
-                height: 150,
+                height: 300,
                 width: 100,
-                child: Icon(Icons.add_a_photo_outlined, size: 130),
+                child: Image.asset('lib/assets/images/login-pana.png'),
               ),
-              CustomButton(
-                text: 'Sync From Facebook',
-                onPressed: () async {
-                  if (formKey.currentState!.validate()) {
-                  } else {}
-                },
-                color: Colors.blue,
-                icon: Icons.facebook,
-              ),
+
               const SizedBox(height: 32),
               CustomTextField(
-                label: 'Full Name',
-                iconPrefix: const Icon(Icons.person),
+                label: 'Password',
+                iconPrefix: const Icon(Icons.password_rounded),
+                iconsufix: const Icon(Icons.remove_red_eye_rounded),
               ),
-              const SizedBox(height: 250),
+              const SizedBox(height: 15),
+              CustomTextField(
+                label: 'Confirm Password',
+                iconPrefix: const Icon(Icons.password_rounded),
+                iconsufix: const Icon(Icons.remove_red_eye_rounded),
+              ),
+              const SizedBox(height: 100),
 
               CustomButton(
-                text: 'Next',
+                text: 'Finish, Good to go',
                 onPressed: () async {
                   if (formKey.currentState!.validate()) {
                   } else {}

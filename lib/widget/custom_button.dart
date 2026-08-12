@@ -17,15 +17,19 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 55,
-      width: 800,
+      height: 50,
+      width: 750,
       child: TextButton(
         style: TextButton.styleFrom(
           backgroundColor: color,
           foregroundColor: Colors.black,
           iconSize: 25,
           padding: const EdgeInsets.symmetric(horizontal: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
         ),
+
         onPressed: onPressed,
         child: Row(
           children: [
@@ -35,7 +39,7 @@ class CustomButton extends StatelessWidget {
               child: Text(
                 text,
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 20, color: Colors.white),
+                style: const TextStyle(fontSize: 15, color: Colors.white),
               ),
             ),
 

@@ -4,6 +4,7 @@ import 'package:app_store/screens/login_page_verfection.dart';
 import 'package:app_store/screens/product_details.dart';
 import 'package:app_store/screens/profile_page.dart';
 import 'package:app_store/screens/register_page.dart';
+import 'package:app_store/screens/register_page_password.dart';
 import 'package:flutter/material.dart';
 
 import 'package:app_store/screens/category_page.dart';
@@ -23,7 +24,7 @@ class AppStore extends StatelessWidget {
     return MaterialApp(
       title: 'App Store',
       debugShowCheckedModeBanner: false,
-      initialRoute: LoginPageVerfection.id,
+      initialRoute: RegisterPagePassword.id,
       routes: {
         NavigationBarScreens.id: (_) => const NavigationBarScreens(),
         HomePage.id: (_) => const HomePage(),
@@ -35,6 +36,7 @@ class AppStore extends StatelessWidget {
         LoginPage.id: (_) => LoginPage(),
         LoginPageVerfection.id: (_) => LoginPageVerfection(),
         RegisterPage.id: (_) => RegisterPage(),
+        RegisterPagePassword.id: (_) => RegisterPagePassword(),
       },
     );
   }

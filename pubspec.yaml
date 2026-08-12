@@ -15,7 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.9
   http: ^1.6.0
   modal_progress_hud_nsn: 0.5.1
-  font_awesome_flutter: ^10.12.0
+  font_awesome_flutter: ^11.0.0
   country_picker: 2.0.28
   pinput: ^5.0.1
 
