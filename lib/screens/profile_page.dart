@@ -1,4 +1,6 @@
-import 'package:app_store/widget/show_edit_profile_dialogs.dart';
+import 'dart:io';
+
+import 'package:app_store/models/user_profile.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -11,7 +13,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  String nameUser = 'Mahmoud Ibrahim';
   String phoneUser = '010xxxxxxxxxx';
 
   @override
@@ -31,11 +32,13 @@ class _ProfilePageState extends State<ProfilePage> {
             children: [
               Row(
                 children: [
-                  const CircleAvatar(
+                  CircleAvatar(
                     radius: 32,
-                    backgroundImage: NetworkImage(
-                      'https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp',
-                    ),
+
+                    backgroundImage: FileImage(UserProfile.image!),
+                    // backgroundImage: NetworkImage(
+                    //   'https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp',
+                    // ),
                   ),
 
                   const SizedBox(width: 14),
@@ -44,7 +47,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        nameUser,
+                        UserProfile.name!,
                         style: const TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w700,
@@ -73,18 +76,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   'Edit Profile',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                 ),
-                onTap: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return ShowEditProfileDialogs(
-                        nameUser: nameUser,
-                        phoneUser: phoneUser,
-                        onUpdate: onUpdate,
-                      );
-                    },
-                  );
-                },
+                onTap: () {},
               ),
             ],
           ),
@@ -101,17 +93,6 @@ class _ProfilePageState extends State<ProfilePage> {
     return Padding(
       padding: const EdgeInsets.only(top: 40),
       child: ListTile(leading: icon, title: textName, onTap: onTap),
-    );
-  }
-
-  void onUpdate(String name, String phone) {
-    setState(() {
-      nameUser = name;
-      phoneUser = phone;
-    });
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Profile updated successfully')),
     );
   }
 }

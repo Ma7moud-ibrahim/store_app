@@ -1,14 +1,28 @@
+import 'package:app_store/models/user_profile.dart';
+import 'package:app_store/screens/bottom_navigation_bar.dart';
+import 'package:app_store/screens/profile_page.dart';
 import 'package:app_store/widget/custom_button.dart';
 import 'package:app_store/widget/custom_text_feild.dart';
+import 'package:app_store/widget/image_picker_avatar.dart';
 import 'package:flutter/material.dart' hide Size;
+import 'dart:io';
 
-class RegisterPage extends StatelessWidget {
-  bool isLoading = false;
-  String? name;
+class RegisterPage extends StatefulWidget {
   static String id = 'RegisterPage';
-  final GlobalKey<FormState> formKey = GlobalKey();
-
   RegisterPage({super.key});
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  bool isLoading = false;
+
+  String? name;
+  File? profileImage;
+
+  final GlobalKey<FormState> formKey = GlobalKey();
+  final TextEditingController nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,23 +49,30 @@ class RegisterPage extends StatelessWidget {
                 ),
                 textAlign: TextAlign.start,
               ),
-              SizedBox(
-                height: 150,
-                width: 100,
-                child: Icon(Icons.add_a_photo_outlined, size: 130),
+              const SizedBox(height: 12),
+              // هنا استبدلنا الـ GestureDetector بالـ widget الجاهز مباشرة
+              Center(
+                child: ImagePickerAvatar(
+                  size: 130,
+                  placeholderIcon: Icons.add_a_photo_outlined,
+                  onImagePicked: (file) {
+                    setState(() {
+                      profileImage = file;
+                    });
+                  },
+                ),
               ),
+              const SizedBox(height: 12),
               CustomButton(
                 text: 'Sync From Facebook',
-                onPressed: () async {
-                  if (formKey.currentState!.validate()) {
-                  } else {}
-                },
+                onPressed: () async {},
                 color: Colors.blue,
                 icon: Icons.facebook,
               ),
               const SizedBox(height: 32),
               CustomTextField(
                 label: 'Full Name',
+                controller: nameController,
                 iconPrefix: const Icon(Icons.person),
               ),
               const SizedBox(height: 340),
@@ -60,7 +81,19 @@ class RegisterPage extends StatelessWidget {
                 text: 'Next',
                 onPressed: () async {
                   if (formKey.currentState!.validate()) {
-                  } else {}
+                    UserProfile.save(
+                      userName: nameController.text,
+                      userImage: profileImage,
+                    );
+
+                    // 2) نفتح صفحة المنتجات الرئيسية
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NavigationBarScreens(),
+                      ), // غيّر HomePage لاسم صفحتك الحقيقي
+                    );
+                  }
                 },
                 color: Colors.green,
                 icon: Icons.arrow_forward,
