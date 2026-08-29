@@ -1,93 +1,157 @@
+import 'package:app_store/screens/register_page.dart';
 import 'package:app_store/widget/custom_button.dart';
-import 'package:app_store/widget/verfection.dart';
-import 'package:flutter/material.dart' hide Size;
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:pinput/pinput.dart';
 
-class LoginPageVerfection extends StatelessWidget {
-  bool isLoading = false;
-  String? email, password;
+class LoginPageVerfection extends StatefulWidget {
+  const LoginPageVerfection({super.key});
+
   static String id = 'LoginPageVerfection';
-  final GlobalKey<FormState> formKey = GlobalKey();
 
-  LoginPageVerfection({super.key});
+  @override
+  State<LoginPageVerfection> createState() => _LoginPageVerfectionState();
+}
+
+class _LoginPageVerfectionState extends State<LoginPageVerfection> {
+  String smsCode = '';
+  bool isLoading = false;
+
+  Future<void> verifyOtp(String verificationId) async {
+    if (smsCode.length != 6) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter the complete verification code'),
+        ),
+      );
+
+      return;
+    }
+
+    setState(() {
+      isLoading = true;
+    });
+
+    try {
+      final credential = PhoneAuthProvider.credential(
+        verificationId: verificationId,
+        smsCode: smsCode,
+      );
+
+      await FirebaseAuth.instance.signInWithCredential(credential);
+
+      if (!mounted) return;
+
+      setState(() {
+        isLoading = false;
+      });
+
+      Navigator.pushReplacementNamed(context, RegisterPage.id);
+    } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+
+      setState(() {
+        isLoading = false;
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.message ?? 'Invalid verification code')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    final verificationId = ModalRoute.of(context)!.settings.arguments as String;
+
     return Scaffold(
       backgroundColor: Colors.white,
+
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: const Text('Verification'),
+      ),
+
       body: Padding(
-        padding: const EdgeInsets.all(15),
-        child: Form(
-          key: formKey,
-          child: ListView(
-            children: [
-              SizedBox(
-                height: 300,
-                width: 100,
-                child: Image.asset(
-                  "lib/assets/images/undraw_personalization_triu.png",
+        padding: const EdgeInsets.all(20),
+
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+
+          children: [
+            const Text(
+              'Enter verification code',
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            ),
+
+            const SizedBox(height: 20),
+
+            const Text(
+              'We sent a verification code to your phone number.',
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w300),
+            ),
+
+            const SizedBox(height: 40),
+
+            Pinput(
+              length: 6,
+              keyboardType: TextInputType.number,
+
+              onChanged: (value) {
+                smsCode = value;
+              },
+
+              onCompleted: (value) {
+                smsCode = value;
+              },
+
+              defaultPinTheme: PinTheme(
+                width: 55,
+                height: 55,
+
+                textStyle: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF1F2F4),
+                  borderRadius: BorderRadius.circular(8),
                 ),
               ),
-              Text(
-                'Enter Verifiection Code',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 28,
-                  fontFamily: 'Pacifico',
+
+              focusedPinTheme: PinTheme(
+                width: 55,
+                height: 55,
+
+                textStyle: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
                 ),
-                textAlign: TextAlign.start,
-              ),
-              SizedBox(height: 30),
-              Text(
-                'We have to sent SMS to :  \n010sssssssssssss',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 17,
-                  fontWeight: FontWeight.w400,
+
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF1F2F4),
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.green),
                 ),
-                textAlign: TextAlign.start,
               ),
-              SizedBox(height: 35),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Resend OTP',
-                    style: TextStyle(
-                      color: Colors.orange,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
-                  Text(
-                    'Change Phone Number',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              verifiectionMethoud(),
+            ),
 
-              SizedBox(height: 50),
+            const SizedBox(height: 40),
 
-              CustomButton(
-                text: 'Next',
-                onPressed: () async {
-                  if (formKey.currentState!.validate()) {
-                  } else {}
-                },
-                color: Colors.green,
-                icon: Icons.arrow_forward,
-              ),
+            CustomButton(
+              text: isLoading ? 'Verifying...' : 'Verify',
 
-              const SizedBox(height: 32),
-            ],
-          ),
+              onPressed: isLoading
+                  ? null
+                  : () async {
+                      await verifyOtp(verificationId);
+                    },
+
+              color: Colors.green,
+              icon: Icons.check,
+            ),
+          ],
         ),
       ),
     );

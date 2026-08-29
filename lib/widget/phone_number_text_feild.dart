@@ -2,7 +2,14 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 
 class PhoneNumberField extends StatefulWidget {
-  const PhoneNumberField({super.key});
+  const PhoneNumberField({
+    super.key,
+    required this.controller,
+    required this.onCountryChanged,
+  });
+
+  final TextEditingController? controller;
+  final Function(Country country)? onCountryChanged;
 
   @override
   State<PhoneNumberField> createState() => _PhoneNumberFieldState();
@@ -17,7 +24,7 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
     level: 1,
     name: 'Egypt',
     example: '1001234567',
-    displayName: 'Egypt (\u202Bمصر\u202C‎)',
+    displayName: 'Egypt',
     displayNameNoCountryCode: 'Egypt',
     e164Key: '',
   );
@@ -25,7 +32,21 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       keyboardType: TextInputType.phone,
+
+      validator: (value) {
+        if (value == null || value.trim().isEmpty) {
+          return 'Please enter your phone number';
+        }
+
+        if (value.trim().length < 8) {
+          return 'Please enter a valid phone number';
+        }
+
+        return null;
+      },
+
       decoration: InputDecoration(
         filled: true,
         fillColor: const Color(0xFFF1F2F4),
@@ -41,11 +62,15 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
                 setState(() {
                   selectedCountry = country;
                 });
+
+                widget.onCountryChanged?.call(country);
               },
             );
           },
+
           child: Padding(
             padding: const EdgeInsets.only(left: 12, right: 8),
+
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [

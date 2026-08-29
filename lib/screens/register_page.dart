@@ -15,6 +15,7 @@ class RegisterPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         title: Text('Your Information'),
       ),
@@ -53,7 +54,7 @@ class RegisterPage extends StatelessWidget {
                 label: 'Full Name',
                 iconPrefix: const Icon(Icons.person),
               ),
-              const SizedBox(height: 250),
+              const SizedBox(height: 340),
 
               CustomButton(
                 text: 'Next',
@@ -64,8 +65,6 @@ class RegisterPage extends StatelessWidget {
                 color: Colors.green,
                 icon: Icons.arrow_forward,
               ),
-
-              const SizedBox(height: 32),
             ],
           ),
         ),
