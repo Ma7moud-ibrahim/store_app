@@ -1,13 +1,20 @@
 import 'dart:io';
 
 class UserProfile {
-  // static يعني القيمة دي بتفضل موجودة في الذاكرة طول ما التطبيق شغال
-  // وأي صفحة في التطبيق تقدر توصلها من غير ما حد يبعتها ليها
   static String? name;
+  static String? password;
+  static String? phone;
   static File? image;
 
-  static void save({required String userName, File? userImage}) {
-    name = userName;
-    image = userImage;
+  static void save({
+    String? userName,
+    String? userPassword,
+    String? userPhone,
+    File? userImage,
+  }) {
+    if (userName != null) name = userName;
+    if (userPassword != null) password = userPassword;
+    if (userPhone != null) phone = userPhone;
+    if (userImage != null) image = userImage;
   }
 }

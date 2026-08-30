@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:app_store/models/user_profile.dart';
+import 'package:app_store/screens/edit_profile_page.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -36,9 +37,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     radius: 32,
 
                     backgroundImage: FileImage(UserProfile.image!),
-                    // backgroundImage: NetworkImage(
-                    //   'https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp',
-                    // ),
                   ),
 
                   const SizedBox(width: 14),
@@ -55,7 +53,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
 
                       Text(
-                        phoneUser,
+                        UserProfile.phone!,
                         style: const TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w700,
@@ -76,7 +74,102 @@ class _ProfilePageState extends State<ProfilePage> {
                   'Edit Profile',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                 ),
+                onTap: () {
+                  Navigator.of(context).pushNamed(EditProfilePage.id);
+                },
+              ),
+              customListTileProfile(
+                icon: const Icon(
+                  Icons.location_pin,
+                  size: 35,
+                  color: Colors.black,
+                ),
+                textName: const Text(
+                  'My Address',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                ),
                 onTap: () {},
+              ),
+              customListTileProfile(
+                icon: const Icon(
+                  Icons.shopping_bag,
+                  size: 35,
+                  color: Colors.black,
+                ),
+                textName: const Text(
+                  'My Order',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                ),
+                onTap: () {},
+              ),
+              customListTileProfile(
+                icon: const Icon(
+                  Icons.bolt,
+                  size: 35,
+                  color: Colors.blueAccent,
+                ),
+                textName: const Text(
+                  'My Wilishist',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                ),
+                onTap: () {},
+              ),
+              customListTileProfile(
+                icon: const Icon(
+                  Icons.chat_bubble,
+                  size: 35,
+                  color: Colors.green,
+                ),
+                textName: const Text(
+                  'Chat With us',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                ),
+                onTap: () {},
+              ),
+              customListTileProfile(
+                icon: const Icon(Icons.call, size: 35, color: Colors.redAccent),
+                textName: const Text(
+                  'Take to Our Support',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                ),
+                onTap: () {},
+              ),
+
+              customListTileProfile(
+                icon: const Icon(Icons.mail, size: 35, color: Colors.black),
+                textName: const Text(
+                  'Mail to us',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                ),
+                onTap: () {},
+              ),
+              customListTileProfile(
+                icon: const Icon(
+                  Icons.facebook,
+                  size: 35,
+                  color: Colors.blueAccent,
+                ),
+                textName: const Text(
+                  'Message to facebook page',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                ),
+                onTap: () {},
+              ),
+              customListTileProfile(
+                icon: const Icon(
+                  Icons.exit_to_app,
+                  size: 35,
+                  color: Colors.red,
+                ),
+                textName: const Text(
+                  'Log out',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                ),
+                onTap: () {
+                  if (Platform.isAndroid) {
+                    exit(0);
+                  }
+                },
               ),
             ],
           ),

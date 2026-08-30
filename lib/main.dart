@@ -1,5 +1,6 @@
 import 'package:app_store/firebase_options.dart';
 import 'package:app_store/screens/bag_page.dart';
+import 'package:app_store/screens/edit_profile_page.dart';
 import 'package:app_store/screens/login_page.dart';
 import 'package:app_store/screens/login_page_verfection.dart';
 import 'package:app_store/screens/product_details.dart';
@@ -41,6 +42,7 @@ class AppStore extends StatelessWidget {
         LoginPageVerfection.id: (_) => LoginPageVerfection(),
         RegisterPage.id: (_) => RegisterPage(),
         RegisterPagePassword.id: (_) => RegisterPagePassword(),
+        EditProfilePage.id: (_) => EditProfilePage(),
       },
     );
   }

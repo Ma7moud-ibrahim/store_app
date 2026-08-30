@@ -6,12 +6,14 @@ class ImagePickerAvatar extends StatefulWidget {
   final ValueChanged<File>? onImagePicked;
   final double size;
   final IconData placeholderIcon;
+  final File? initialImage;
 
   const ImagePickerAvatar({
     super.key,
     this.onImagePicked,
     this.size = 120,
     this.placeholderIcon = Icons.add_a_photo,
+    this.initialImage,
   });
 
   @override
@@ -20,6 +22,12 @@ class ImagePickerAvatar extends StatefulWidget {
 
 class _ImagePickerAvatarState extends State<ImagePickerAvatar> {
   File? _selectedImage;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedImage = widget.initialImage;
+  }
 
   Future<void> _pickImage() async {
     showModalBottomSheet(
@@ -63,7 +71,7 @@ class _ImagePickerAvatarState extends State<ImagePickerAvatar> {
       onTap: _pickImage,
       child: _selectedImage != null
           ? ClipRRect(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(120),
               child: Image.file(
                 _selectedImage!,
                 width: widget.size,
@@ -76,7 +84,7 @@ class _ImagePickerAvatarState extends State<ImagePickerAvatar> {
               height: widget.size,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black),
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(80),
               ),
               child: Icon(widget.placeholderIcon, size: widget.size * 0.33),
             ),

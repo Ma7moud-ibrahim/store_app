@@ -1,3 +1,4 @@
+import 'package:app_store/models/user_profile.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 
@@ -42,6 +43,9 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
 
         if (value.trim().length < 8) {
           return 'Please enter a valid phone number';
+        }
+        if (value.isNotEmpty) {
+          UserProfile.save(userPhone: value);
         }
 
         return null;
