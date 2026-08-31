@@ -74,8 +74,8 @@ A modern Flutter e-commerce application built to demonstrate a complete shopping
 <table>
   <tr>
     <td align="center">
-      <img width="200" alt="Onboarding" src="https://github.com/user-attachments/assets/d7a5ce7d-fdf1-4b07-8787-ebe2cd780edf" /><br/>
-      <sub><b>Onboarding</b></sub>
+      <img width="200" alt="Country" src="https://github.com/user-attachments/assets/d7a5ce7d-fdf1-4b07-8787-ebe2cd780edf" /><br/>
+      <sub><b>Country</b></sub>
     </td>
     <td align="center">
       <img width="200" alt="Login" src="https://github.com/user-attachments/assets/5942ad0a-0139-4571-be70-13e4f4f1ab61" /><br/>
@@ -88,7 +88,7 @@ A modern Flutter e-commerce application built to demonstrate a complete shopping
   </tr>
   <tr>
     <td align="center">
-      <img width="150" alt="Your Information" src="https://github.com/user-attachments/assets/169c8aef-11da-46ec-82dd-4cdc2002a78d" /><br/>
+      <img width="150" alt="Password" src="https://github.com/user-attachments/assets/169c8aef-11da-46ec-82dd-4cdc2002a78d" /><br/>
       <sub><b>Your Information</b></sub>
     </td>
     <td align="center">
