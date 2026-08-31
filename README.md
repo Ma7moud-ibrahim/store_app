@@ -75,29 +75,29 @@ A modern Flutter e-commerce application built to demonstrate a complete shopping
   <tr>
     <td align="center">
       <img width="200" alt="Country" src="https://github.com/user-attachments/assets/d7a5ce7d-fdf1-4b07-8787-ebe2cd780edf" /><br/>
-      <sub><b>Country</b></sub>
+      <sub><b></b></sub>
     </td>
     <td align="center">
       <img width="200" alt="Login" src="https://github.com/user-attachments/assets/5942ad0a-0139-4571-be70-13e4f4f1ab61" /><br/>
-      <sub><b>Login</b></sub>
+      <sub><b></b></sub>
     </td>
     <td align="center">
       <img width="200" alt="Registration" src="https://github.com/user-attachments/assets/3f5713e6-c87f-4d09-a1fd-0b4a244f52c7" /><br/>
-      <sub><b>Registration</b></sub>
+      <sub><b></b></sub>
     </td>
   </tr>
   <tr>
     <td align="center">
       <img width="150" alt="Password" src="https://github.com/user-attachments/assets/169c8aef-11da-46ec-82dd-4cdc2002a78d" /><br/>
-      <sub><b>Your Information</b></sub>
+      <sub><b></b></sub>
     </td>
     <td align="center">
       <img width="150" alt="Image Picker" src="https://github.com/user-attachments/assets/e01a7460-86b4-4ce7-9491-7c3b297afdeb" /><br/>
-      <sub><b>Image Picker</b></sub>
+      <sub><b></b></sub>
     </td>
     <td align="center">
       <img width="150" alt="Facebook Sync" src="https://github.com/user-attachments/assets/3c9b56e7-d57b-4a1b-a2a7-5f39d062384f" /><br/>
-      <sub><b>Facebook Sync</b></sub>
+      <sub><b></b></sub>
     </td>
   </tr>
 </table>
@@ -108,15 +108,15 @@ A modern Flutter e-commerce application built to demonstrate a complete shopping
   <tr>
     <td align="center">
       <img width="150" alt="Home" src="https://github.com/user-attachments/assets/169c8aef-11da-46ec-82dd-4cdc2002a78d" /><br/>
-      <sub><b>Home</b></sub>
+      <sub><b></b></sub>
     </td>
     <td align="center">
       <img width="150" alt="Product Details" src="https://github.com/user-attachments/assets/62d608d2-36c2-4f31-baf9-7f9e27d4c675" /><br/>
-      <sub><b>Product Details</b></sub>
+      <sub><b></b></sub>
     </td>
     <td align="center">
       <img width="150" alt="Cart" src="https://github.com/user-attachments/assets/a1a58dec-e86c-4008-b1ac-cb7a1334f828" /><br/>
-      <sub><b>Shopping Cart</b></sub>
+      <sub><b></b></sub>
     </td>
   </tr>
 </table>
@@ -127,11 +127,11 @@ A modern Flutter e-commerce application built to demonstrate a complete shopping
   <tr>
     <td align="center">
       <img width="150" alt="Profile" src="https://github.com/user-attachments/assets/47d92354-e969-4acd-b61f-c6bc16c5fdf3" /><br/>
-      <sub><b>Profile</b></sub>
+      <sub><b></b></sub>
     </td>
     <td align="center">
       <img width="150" alt="Live Location" src="https://github.com/user-attachments/assets/37d5c249-d67f-425c-9837-301fd9eea166" /><br/>
-      <sub><b>Live Location</b></sub>
+      <sub><b></b></sub>
     </td>
   </tr>
 </table>
