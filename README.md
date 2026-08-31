@@ -98,6 +98,9 @@ A modern Flutter e-commerce application built to demonstrate a complete shopping
     <td align="center">
       <img width="150" alt="Facebook Sync" src="https://github.com/user-attachments/assets/3c9b56e7-d57b-4a1b-a2a7-5f39d062384f" /><br/>
       <sub><b></b></sub>
+      <td align="center">
+      <img width="150" alt="Home" src="https://github.com/user-attachments/assets/169c8aef-11da-46ec-82dd-4cdc2002a78d" /><br/>
+      <sub><b></b></sub>
     </td>
   </tr>
 </table>
@@ -106,9 +109,6 @@ A modern Flutter e-commerce application built to demonstrate a complete shopping
 
 <table>
   <tr>
-    <td align="center">
-      <img width="150" alt="Home" src="https://github.com/user-attachments/assets/169c8aef-11da-46ec-82dd-4cdc2002a78d" /><br/>
-      <sub><b></b></sub>
     </td>
     <td align="center">
       <img width="150" alt="Product Details" src="https://github.com/user-attachments/assets/62d608d2-36c2-4f31-baf9-7f9e27d4c675" /><br/>
@@ -117,6 +117,14 @@ A modern Flutter e-commerce application built to demonstrate a complete shopping
     <td align="center">
       <img width="150" alt="Cart" src="https://github.com/user-attachments/assets/a1a58dec-e86c-4008-b1ac-cb7a1334f828" /><br/>
       <sub><b></b></sub>
+      <td align="center">
+      <img width="150" alt="Profile" src="https://github.com/user-attachments/assets/47d92354-e969-4acd-b61f-c6bc16c5fdf3" /><br/>
+      <sub><b></b></sub>
+    </td>
+    <td align="center">
+      <img width="150" alt="Live Location" src="https://github.com/user-attachments/assets/37d5c249-d67f-425c-9837-301fd9eea166" /><br/>
+      <sub><b></b></sub>
+    </td>
     </td>
   </tr>
 </table>
@@ -125,14 +133,7 @@ A modern Flutter e-commerce application built to demonstrate a complete shopping
 
 <table>
   <tr>
-    <td align="center">
-      <img width="150" alt="Profile" src="https://github.com/user-attachments/assets/47d92354-e969-4acd-b61f-c6bc16c5fdf3" /><br/>
-      <sub><b></b></sub>
-    </td>
-    <td align="center">
-      <img width="150" alt="Live Location" src="https://github.com/user-attachments/assets/37d5c249-d67f-425c-9837-301fd9eea166" /><br/>
-      <sub><b></b></sub>
-    </td>
+    
   </tr>
 </table>
 
